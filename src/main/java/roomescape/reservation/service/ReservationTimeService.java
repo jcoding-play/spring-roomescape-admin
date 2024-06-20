@@ -22,6 +22,13 @@ public class ReservationTimeService {
         return reservationTimeRepository.findAll();
     }
 
+    public ReservationTime findById(Long id) {
+        if (!reservationTimeRepository.existsById(id)) {
+            throw new IllegalArgumentException(String.format("입력된 Id가 존재하지 않아 예약 시간을 찾을 수 없습니다. 입력된 id=%d", id));
+        }
+        return reservationTimeRepository.findById(id);
+    }
+
     public void delete(Long id) {
         if (!reservationTimeRepository.existsById(id)) {
             throw new IllegalArgumentException(String.format("입력된 Id가 존재하지 않아 예약 시간을 삭제할 수 없습니다. 입력된 id=%d", id));

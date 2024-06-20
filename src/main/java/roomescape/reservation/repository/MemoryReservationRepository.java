@@ -1,10 +1,10 @@
 package roomescape.reservation.repository;
 
 import roomescape.reservation.domain.Reservation;
+import roomescape.reservation.domain.ReservationTime;
 import roomescape.reservation.domain.repository.ReservationRepository;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -27,7 +27,7 @@ public class MemoryReservationRepository implements ReservationRepository {
         long id = idGenerator.getAndIncrement();
         String name = reservation.getName();
         LocalDate date = reservation.getDate();
-        LocalTime time = reservation.getTime();
+        ReservationTime time = reservation.getTime();
         Reservation savedReservation = new Reservation(id, name, date, time);
 
         store.put(id, savedReservation);

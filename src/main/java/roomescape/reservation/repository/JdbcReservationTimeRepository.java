@@ -1,6 +1,7 @@
 package roomescape.reservation.repository;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import roomescape.reservation.domain.ReservationTime;
@@ -11,6 +12,10 @@ import java.sql.Time;
 import java.util.List;
 
 public class JdbcReservationTimeRepository implements ReservationTimeRepository {
+    private static final RowMapper<ReservationTime> RESERVATION_TIME_ROW_MAPPER = (resultSet, rowNum) -> new ReservationTime(
+            resultSet.getLong("id"),
+            resultSet.getTime("start_at").toLocalTime()
+    );
     private final JdbcTemplate jdbcTemplate;
 
     public JdbcReservationTimeRepository(JdbcTemplate jdbcTemplate) {
@@ -35,10 +40,13 @@ public class JdbcReservationTimeRepository implements ReservationTimeRepository 
     @Override
     public List<ReservationTime> findAll() {
         String sql = "SELECT * FROM reservation_time";
-        return jdbcTemplate.query(sql, (resultSet, rowNum) -> new ReservationTime(
-                resultSet.getLong("id"),
-                resultSet.getTime("start_at").toLocalTime()
-        ));
+        return jdbcTemplate.query(sql, RESERVATION_TIME_ROW_MAPPER);
+    }
+
+    @Override
+    public ReservationTime findById(Long id) {
+        String sql = "SELECT * FROM reservation_time WHERE id = ?";
+        return jdbcTemplate.queryForObject(sql, RESERVATION_TIME_ROW_MAPPER, id);
     }
 
     @Override
