@@ -1,6 +1,5 @@
 package roomescape.reservation.repository;
 
-import org.springframework.stereotype.Repository;
 import roomescape.reservation.domain.Reservation;
 import roomescape.reservation.domain.ReservationRepository;
 
@@ -12,7 +11,6 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
-@Repository
 public class MemoryReservationRepository implements ReservationRepository {
     private static final int INITIAL_VALUE_OF_RESERVATION_ID = 1;
 
