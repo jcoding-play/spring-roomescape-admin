@@ -7,4 +7,8 @@ public interface ReservationTimeRepository {
     ReservationTime save(ReservationTime reservationTime);
 
     List<ReservationTime> findAll();
+
+    boolean existsById(Long id);
+
+    void deleteById(Long id);
 }

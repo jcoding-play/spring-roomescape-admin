@@ -35,4 +35,15 @@ class ReservationTimeControllerTest extends AcceptanceTest {
                 .statusCode(200)
                 .body("size()", is(1));
     }
+
+    @Test
+    @DisplayName("예약 시간을 삭제한다.")
+    void deleteReservationTime() {
+        createReservationTime();
+
+        RestAssured.given().log().all()
+                .when().delete("/times/1")
+                .then().log().all()
+                .statusCode(204);
+    }
 }
