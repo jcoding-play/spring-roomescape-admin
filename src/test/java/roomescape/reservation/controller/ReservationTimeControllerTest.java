@@ -23,4 +23,16 @@ class ReservationTimeControllerTest extends AcceptanceTest {
                 .statusCode(201)
                 .body("id", is(1));
     }
+
+    @Test
+    @DisplayName("전체 예약 시간을 조회한다.")
+    void findAllReservationTimes() {
+        createReservationTime();
+
+        RestAssured.given().log().all()
+                .when().get("/times")
+                .then().log().all()
+                .statusCode(200)
+                .body("size()", is(1));
+    }
 }

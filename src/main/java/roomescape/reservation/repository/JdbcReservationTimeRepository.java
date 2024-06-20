@@ -8,6 +8,7 @@ import roomescape.reservation.domain.ReservationTimeRepository;
 
 import java.sql.PreparedStatement;
 import java.sql.Time;
+import java.util.List;
 
 public class JdbcReservationTimeRepository implements ReservationTimeRepository {
     private final JdbcTemplate jdbcTemplate;
@@ -29,5 +30,14 @@ public class JdbcReservationTimeRepository implements ReservationTimeRepository 
 
         long id = keyHolder.getKey().longValue();
         return new ReservationTime(id, reservationTime.getStartAt());
+    }
+
+    @Override
+    public List<ReservationTime> findAll() {
+        String sql = "SELECT * FROM reservation_time";
+        return jdbcTemplate.query(sql, (resultSet, rowNum) -> new ReservationTime(
+                resultSet.getLong("id"),
+                resultSet.getTime("start_at").toLocalTime()
+        ));
     }
 }
