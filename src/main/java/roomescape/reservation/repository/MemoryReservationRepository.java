@@ -1,7 +1,7 @@
 package roomescape.reservation.repository;
 
 import roomescape.reservation.domain.Reservation;
-import roomescape.reservation.domain.ReservationRepository;
+import roomescape.reservation.domain.repository.ReservationRepository;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
