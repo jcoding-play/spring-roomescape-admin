@@ -40,6 +40,11 @@ public class MemoryReservationRepository implements ReservationRepository {
     }
 
     @Override
+    public boolean existsById(long id) {
+        return store.containsKey(id);
+    }
+
+    @Override
     public void deleteById(long id) {
         store.remove(id);
     }
