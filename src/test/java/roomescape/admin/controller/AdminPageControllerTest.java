@@ -18,9 +18,18 @@ class AdminPageControllerTest extends AcceptanceTest {
 
     @Test
     @DisplayName("예약 관리 페이지를 응답한다.")
-    void reservationsPage() {
+    void reservationPage() {
         RestAssured.given().log().all()
                 .when().get("/admin/reservation")
+                .then().log().all()
+                .statusCode(200);
+    }
+
+    @Test
+    @DisplayName("시간 관리 페이지를 응답한다.")
+    void reservationTimePage() {
+        RestAssured.given().log().all()
+                .when().get("admin/time")
                 .then().log().all()
                 .statusCode(200);
     }
