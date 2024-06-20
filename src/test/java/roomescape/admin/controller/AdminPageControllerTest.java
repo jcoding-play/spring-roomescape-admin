@@ -28,4 +28,13 @@ class AdminPageControllerTest {
                 .then().log().all()
                 .statusCode(200);
     }
+
+    @Test
+    @DisplayName("예약 관리 페이지를 응답한다.")
+    void reservationsPage() {
+        RestAssured.given().log().all()
+                .when().get("/admin/reservation")
+                .then().log().all()
+                .statusCode(200);
+    }
 }
