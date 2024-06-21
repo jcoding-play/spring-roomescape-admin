@@ -2,7 +2,6 @@ package roomescape.admin.controller;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import roomescape.ControllerTest;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -22,7 +21,7 @@ class AdminPageControllerTest extends ControllerTest {
     @Test
     @DisplayName("예약 페이지를 조회한다.")
     void reservationPage() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/admin/reservation"))
+        mockMvc.perform(get("/admin/reservation"))
                 .andDo(print())
                 .andExpect(status().isOk());
     }
@@ -30,7 +29,7 @@ class AdminPageControllerTest extends ControllerTest {
     @Test
     @DisplayName("예약 시간 페이지를 조회한다.")
     void reservationTimePage() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/admin/time"))
+        mockMvc.perform(get("/admin/time"))
                 .andDo(print())
                 .andExpect(status().isOk());
     }
