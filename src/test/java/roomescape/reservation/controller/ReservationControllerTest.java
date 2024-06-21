@@ -1,20 +1,13 @@
 package roomescape.reservation.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.BDDMockito;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MockMvc;
-import roomescape.ControllerTest;
+import roomescape.utils.ControllerTest;
 import roomescape.reservation.domain.Reservation;
 import roomescape.reservation.domain.ReservationTime;
 import roomescape.reservation.dto.ReservationRequest;
-import roomescape.reservation.service.ReservationService;
-import roomescape.reservation.service.ReservationTimeService;
 
 import java.time.LocalDate;
 import java.util.List;

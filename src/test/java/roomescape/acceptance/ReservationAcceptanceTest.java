@@ -6,15 +6,20 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import roomescape.reservation.service.ReservationTimeService;
 
 import java.util.Map;
 
 import static org.hamcrest.Matchers.is;
+import static roomescape.fixture.ReservationTimeFixture.RESERVATION_TIME;
 
 class ReservationAcceptanceTest extends AcceptanceTest {
 
     @Autowired
     JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    ReservationTimeService reservationTimeService;
 
     @Test
     @DisplayName("전체 예약을 조회한다.")
@@ -29,11 +34,11 @@ class ReservationAcceptanceTest extends AcceptanceTest {
     @Test
     @DisplayName("예약을 추가한다.")
     void createReservation() {
-        jdbcTemplate.update("INSERT INTO reservation_time (start_at) VALUES (?)", "15:40");
+        reservationTimeService.create(RESERVATION_TIME());
 
         Map<String, String> params = Map.of(
                 "name", "브라운",
-                "date", "2023-08-05",
+                "date", "2024-08-05",
                 "timeId", "1");
 
         RestAssured.given().log().all()

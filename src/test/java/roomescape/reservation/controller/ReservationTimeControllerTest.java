@@ -4,7 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.BDDMockito;
 import org.springframework.http.MediaType;
-import roomescape.ControllerTest;
+import roomescape.utils.ControllerTest;
 import roomescape.reservation.domain.ReservationTime;
 import roomescape.reservation.dto.ReservationTimeRequest;
 
