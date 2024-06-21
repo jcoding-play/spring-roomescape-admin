@@ -1,16 +1,15 @@
-package roomescape.reservation.controller;
+package roomescape.acceptance;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import roomescape.AcceptanceTest;
 
 import java.util.Map;
 
 import static org.hamcrest.Matchers.is;
 
-class ReservationTimeControllerTest extends AcceptanceTest {
+class ReservationTimeAcceptanceTest extends AcceptanceTest {
 
     @Test
     @DisplayName("예약 시간을 추가한다.")

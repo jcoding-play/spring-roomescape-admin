@@ -1,4 +1,4 @@
-package roomescape.reservation.controller;
+package roomescape.acceptance;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -6,13 +6,12 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import roomescape.AcceptanceTest;
 
 import java.util.Map;
 
 import static org.hamcrest.Matchers.is;
 
-class ReservationControllerTest extends AcceptanceTest {
+class ReservationAcceptanceTest extends AcceptanceTest {
 
     @Autowired
     JdbcTemplate jdbcTemplate;

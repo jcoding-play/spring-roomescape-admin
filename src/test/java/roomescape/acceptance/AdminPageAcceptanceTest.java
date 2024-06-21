@@ -1,11 +1,10 @@
-package roomescape.admin.controller;
+package roomescape.acceptance;
 
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import roomescape.AcceptanceTest;
 
-class AdminPageControllerTest extends AcceptanceTest {
+class AdminPageAcceptanceTest extends AcceptanceTest {
 
     @Test
     @DisplayName("어드민 메인 페이지를 응답한다.")

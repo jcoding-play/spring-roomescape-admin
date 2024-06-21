@@ -2,13 +2,10 @@ package roomescape;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.test.annotation.DirtiesContext;
+import roomescape.acceptance.AcceptanceTest;
 import roomescape.reservation.controller.ReservationController;
 import roomescape.reservation.domain.Reservation;
 
